@@ -28,7 +28,7 @@ fi
 
 $PYTHON_CMD -m pip install build
 $PYTHON_CMD -m build --outdir dist .
-$PYTHON_CMD -m pip install dist/opencode_api-1.15.5-py3-none-any.whl --force-reinstall
+$PYTHON_CMD -m pip install dist/opencode_api-1.15.6-py3-none-any.whl --force-reinstall
 
 if [ "$USE_VENV" -eq 1 ]; then
     deactivate

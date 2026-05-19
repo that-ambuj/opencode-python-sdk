@@ -60,3 +60,6 @@ class OpencodeAsync(Opencode):
         self.v2_providers = V2ProvidersServiceAsync(base_url=self._base_url)
         self.tui = TuiServiceAsync(base_url=self._base_url)
         self.workspace = WorkspaceServiceAsync(base_url=self._base_url)
+        # patch: re-apply after overwriting services above (else KeyError:'access_token_auth' on first call); preserve across liblab regen
+        self.set_access_token(access_token)
+        self.set_timeout(timeout)
