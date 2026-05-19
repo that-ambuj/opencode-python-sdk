@@ -64,20 +64,27 @@ This SDK is compatible with the following versions: `Python >= 3.9`
 ## Installation
 
 This SDK is **not currently published on PyPI** — install directly from this
-repository. Pin to the tag that matches your opencode server version:
+repository. Pin to the tag that matches your opencode server version.
+
+### Using [uv](https://docs.astral.sh/uv/) (recommended)
 
 ```bash
-# install the version that tracks opencode server 1.15.5
-pip install "git+https://github.com/that-ambuj/opencode-python-sdk.git@v1.15.5"
+uv add "opencode-api @ git+https://github.com/that-ambuj/opencode-python-sdk.git@v1.15.5"
 ```
 
-Or pin in `requirements.txt`:
+Or for a one-off install into the current environment:
 
-```
-opencode-api @ git+https://github.com/that-ambuj/opencode-python-sdk.git@v1.15.5
+```bash
+uv pip install "git+https://github.com/that-ambuj/opencode-python-sdk.git@v1.15.5"
 ```
 
-Or pin in `pyproject.toml`:
+### Using `pip3`
+
+```bash
+pip3 install "git+https://github.com/that-ambuj/opencode-python-sdk.git@v1.15.5"
+```
+
+### Pinning in `pyproject.toml`
 
 ```toml
 dependencies = [
@@ -85,10 +92,18 @@ dependencies = [
 ]
 ```
 
-To install the latest unstable `main`:
+### Pinning in `requirements.txt`
+
+```
+opencode-api @ git+https://github.com/that-ambuj/opencode-python-sdk.git@v1.15.5
+```
+
+### Latest unstable `main`
 
 ```bash
-pip install "git+https://github.com/that-ambuj/opencode-python-sdk.git"
+uv pip install "git+https://github.com/that-ambuj/opencode-python-sdk.git"
+# or
+pip3 install "git+https://github.com/that-ambuj/opencode-python-sdk.git"
 ```
 
 ## Authentication
