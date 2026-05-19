@@ -4,6 +4,7 @@ from enum import Enum
 from typing import get_args, Union
 from inspect import isclass
 from .one_of_base_model import OneOfBaseModel
+from .sentinel import SENTINEL
 
 
 def cast_models(func):
@@ -37,6 +38,10 @@ def cast_models(func):
         :param input_type: The type of the input.
         :return: The instanced type.
         """
+        # patch: leave SENTINEL untouched so optional Enum/oneOf params with the SENTINEL default don't blow up (else: ValueError: <SENTINEL> is not a valid <Enum>); preserve across liblab regen
+        if data is SENTINEL:
+            return data
+
         # Instanciate oneOf models
         if _is_one_of_model(input_type):
             class_list = {
